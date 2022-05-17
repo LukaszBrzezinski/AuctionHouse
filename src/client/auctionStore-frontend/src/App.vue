@@ -83,6 +83,7 @@ export default {
 .input-wrapper{
     margin-top:50px;
     margin-bottom:50px;
+    user-select: none;
 }
 .container input{
     width:600px;
@@ -111,6 +112,10 @@ textarea{
     font-size:30px;
     width:90%;
     height:100%;
+    border:2px solid black;
+    border-radius:30px;
+    padding:10px;
+    /* margin-right:50px; */
 }
 .left, .right{
     width:50%;
@@ -148,5 +153,14 @@ input[type="submit"]{
   width:50px;
   height:50px;
   position:absolute;
+  margin-left:20px;
+}
+.user-select{
+    user-select: none;
+}
+
+.subtext{
+    font-size: var(--font-size-md);
+    color:rgb(72, 72, 202);
 }
 </style>

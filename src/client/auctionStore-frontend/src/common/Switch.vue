@@ -45,7 +45,7 @@ export default {
     content: "";
     height: 20px;
     width: 20px;
-    left: 4px;
+    left: 7px;
     bottom: 4px;
     background-color: var(--color-light);
     -webkit-transition: .4s;

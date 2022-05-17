@@ -27,7 +27,7 @@
                     </div>
                     <div class="right">
                         <div class="row">
-                            <p>Opis produktu</p>
+                            <p>Opis produktu (maks. 150 znaków)</p>
                         </div>
                         <div class="row">
                             <textarea name="description" rows="10" cols="35"></textarea>
