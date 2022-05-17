@@ -44,6 +44,7 @@ export default {
         /* background-color: rgb(167,57,134); */
         background-color: var(--color-dark);
         color:var(--color-light);
+        user-select: none;
     }
 
     .user-icon{

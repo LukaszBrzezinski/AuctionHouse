@@ -109,6 +109,8 @@ export default {
 textarea{
     resize:none;
     font-size:30px;
+    width:90%;
+    height:100%;
 }
 .left, .right{
     width:50%;
@@ -132,6 +134,7 @@ input[type="text"], input[type="password"]{
     border-radius:30px;
     padding:15px;
     border:2px solid black;
+    width:90%;
 }
 input[type="submit"]{
     border-radius:30px;
