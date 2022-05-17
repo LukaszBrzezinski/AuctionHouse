@@ -1,0 +1,83 @@
+/* 
+  *
+  * Roboto Condensed
+  *
+*/
+
+@font-face {
+  font-family: 'RobotoCondensed-Light';
+  font-weight: 300;
+  src: local('RobotoCondensed-Light') 
+       url('../fonts/roboto-condensed/RobotoCondensed-Light.ttf') 
+       format("truetype");
+}
+
+@font-face {
+  font-family: 'RobotoCondensed-Regular';
+  font-weight: 400;
+  src: local('RobotoCondensed-Regular') 
+       url('../fonts/roboto-condensed/RobotoCondensed-Regular.ttf') 
+       format("truetype");
+}
+
+@font-face {
+  font-family: 'RobotoCondensed-Bold';
+  font-weight: 700;
+  src: local('RobotoCondensed-Bold') 
+       url('../fonts/roboto-condensed/RobotoCondensed-Bold.ttf') 
+       format("truetype");
+}
+
+/* 
+  *
+  * Titillium Web
+  *
+*/
+
+@font-face {
+  font-family: 'TitilliumWeb-ExtraLight';
+  font-weight: 200;
+  src: local('TitilliumWeb-ExtraLight') 
+       url('../fonts/titanium/TitilliumWeb-ExtraLight.ttf') 
+       format("truetype");
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-Light';
+  font-weight: 300;
+  src: local('TitilliumWeb-Light') 
+       url('../fonts/titanium/TitilliumWeb-Light.ttf') 
+       format("truetype");
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-Regular';
+  font-weight: 400;
+  src: local('TitilliumWeb-Regular') 
+       url('../fonts/titanium/TitilliumWeb-Regular.ttf') 
+       format("truetype");
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-SemiBold';
+  font-weight: 600;
+  src: local('TitilliumWeb-SemiBold') 
+       url('../fonts/titanium/TitilliumWeb-SemiBold.ttf') 
+       format("truetype");
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-Bold';
+  font-weight: 700;
+  src: local('TitilliumWeb-Bold') 
+       url('../fonts/titanium/TitilliumWeb-Bold.ttf') 
+       format("truetype");
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-Black';
+  font-weight: 900;
+  src: local('TitilliumWeb-Black') 
+       url('../fonts/titanium/TitilliumWeb-Black.ttf') 
+       format("truetype");
+}
