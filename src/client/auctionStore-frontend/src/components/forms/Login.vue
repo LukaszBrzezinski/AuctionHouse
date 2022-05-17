@@ -1,8 +1,10 @@
 <template>
     <div class="wrapper">
         <div class="container" data-color="light">
-            <div class="row">
-                <p>ZALOGUJ SIĘ</p>
+            <div class="user-select">
+                <div class="row">
+                    <p>ZALOGUJ SIĘ</p>
+                </div>
             </div>
         </div>
         <div class="container" data-color="light">
@@ -21,10 +23,10 @@
                         <input type="password" name="password">
                     </div>
                     <div class="row">
-                        <input type="submit" value="DODAJ OGŁOSZENIE">
+                        <input type="submit" value="ZALOGUJ SIĘ">
                     </div>
                     <div class="row" @click="$store.dispatch('setRegisterForm')">
-                        <p>Nie masz konta? Zarejestruj się...</p>
+                        <p class="subtext">Nie masz konta? Zarejestruj się...</p>
                     </div>
                 </div>
             </form>
