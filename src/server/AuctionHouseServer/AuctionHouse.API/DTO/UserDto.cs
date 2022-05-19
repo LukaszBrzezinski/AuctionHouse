@@ -5,7 +5,7 @@ namespace AuctionHouse.API.DTO
     {
         private string _name;
         private string _password;
-        public string _email;
+        private string _email;
         private string _dateOfBirth;
         public UserDto(UserCredentials userCredentials)
         {

@@ -13,7 +13,6 @@ namespace AuctionHouse.API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private List<UserDto> userList = new List<UserDto>();
         private readonly IRegisterUserService _registerUser;
 
         public UsersController(IRegisterUserService registerUser)
@@ -28,10 +27,16 @@ namespace AuctionHouse.API.Controllers
 
             if (_registerUser.RegisterUser(dto))
             {
-                userList.Add(dto);
+                _registerUser.GetUserList().Add(dto);
                 return true;
             }
             return false;
+        }
+
+        [HttpGet]
+        public bool Get([FromBody] string email)
+        {
+            return _registerUser.GetUserList().Exists(item => item.getEmail() == email);
         }
     }
 }
