@@ -1,19 +1,35 @@
-# Auction Store
+# olx
 
-#WHAT YOU NEED TO RUN THE PROJECT
-node version >=14.0.0
+This template should help get you started developing with Vue 3 in Vite.
 
-#HOW TO RUN THE PROJECT
+## Recommended IDE Setup
 
-1. Open the terminal in the 'OLX' folder
-2. Write npm install or npm i
-3. Write 'npm run dev'
-4. The project should be hosted on your local port 3000
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
 
+## Customize configuration
 
-#WHAT TO DO IF IT DOESNT WORK
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-1. Delete package-lock.json.
-2. Delete node_modules.
-3. npm install
-4. npm run dev
+## Project Setup
+
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```

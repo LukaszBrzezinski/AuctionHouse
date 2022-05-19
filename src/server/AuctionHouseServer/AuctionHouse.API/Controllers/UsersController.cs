@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AuctionHouse.API.DTO;
+using AuctionHouse.API.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,5 +13,25 @@ namespace AuctionHouse.API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
+        private List<UserDto> userList = new List<UserDto>();
+        private readonly IRegisterUserService _registerUser;
+
+        public UsersController(IRegisterUserService registerUser)
+        {
+            _registerUser = registerUser;
+        }
+
+        [HttpPost]
+        public bool Post([FromBody] UserCredentials userCredentials)
+        {
+            UserDto dto = new UserDto(userCredentials);
+
+            if (_registerUser.RegisterUser(dto))
+            {
+                userList.Add(dto);
+                return true;
+            }
+            return false;
+        }
     }
 }
