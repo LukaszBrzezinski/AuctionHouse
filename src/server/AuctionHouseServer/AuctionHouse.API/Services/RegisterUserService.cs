@@ -6,24 +6,21 @@ namespace AuctionHouse.API.Services
 {
     public class RegisterUserService: IRegisterUserService
     {
-        private List<UserDto> userList = new List<UserDto>();
+        private readonly IUserService _userService;
 
-        public List<UserDto> GetUserList()
+        public RegisterUserService(IUserService userService)
         {
-            return userList;
+            _userService = userService;
         }
 
         public bool RegisterUser(UserDto userdto)
         {
-            //check if user with such credential exists in the database;
-            //if so return false;
-            //if not add him to database and return true;
-            if(userList.Exists(item => item.getEmail() == userdto.getEmail()))
+            if (_userService.CheckIfCanSetUpAccount(userdto))
             {
-                return false;
+                _userService.GetUserRepository().GetUsersList().Add(userdto);
+                return true;
             }
-            userList.Add(userdto);
-            return true;
+            else return false;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace AuctionHouse.API.Controllers
     {
         private readonly IRegisterUserService _registerUser;
 
-        public UsersController(IRegisterUserService registerUser)
+        public UsersController(RegisterUserService registerUser)
         {
             _registerUser = registerUser;
         }
@@ -24,19 +24,13 @@ namespace AuctionHouse.API.Controllers
         public bool Post([FromBody] UserCredentials userCredentials)
         {
             UserDto dto = new UserDto(userCredentials);
-
-            if (_registerUser.RegisterUser(dto))
-            {
-                _registerUser.GetUserList().Add(dto);
-                return true;
-            }
-            return false;
+            return _registerUser.RegisterUser(dto);
         }
 
         [HttpGet]
-        public bool Get([FromBody] string email)
+        public string Get()
         {
-            return _registerUser.GetUserList().Exists(item => item.getEmail() == email);
+            return "XD";
         }
     }
 }
