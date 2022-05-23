@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AuctionHouse.API.Services;
 using AuctionHouse.API.Repositories;
+using AuctionHouse.API.DTO;
 
 namespace AuctionHouse.API
 {
@@ -28,9 +29,15 @@ namespace AuctionHouse.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<IRegisterUserService, RegisterUserService>();
             services.AddSingleton<IUserRepository, UserRepository>();
+            //Wtedy w startup musi byæ tak   services.AddSingleton<IRegisterUserService, RegisterUserService>();
+            services.AddSingleton<IRegisterUserService, RegisterUserService>();
+           
+           
+          
             services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<ICreateUserService, CreateUserService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -9,15 +9,17 @@ using System.Threading.Tasks;
 
 namespace AuctionHouse.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly IRegisterUserService _registerUser;
-
-        public UsersController(RegisterUserService registerUser)
+        private readonly ICreateUserService _createUserService;
+        //Można zrobić tak public UsersController(IRegisterUserService registerUser)
+        public UsersController(IRegisterUserService registerUser, ICreateUserService createUserService)
         {
             _registerUser = registerUser;
+            _createUserService = createUserService;
         }
 
         [HttpPost]
@@ -25,6 +27,12 @@ namespace AuctionHouse.API.Controllers
         {
             UserDto dto = new UserDto(userCredentials);
             return _registerUser.RegisterUser(dto);
+        }
+        [HttpPost]
+        [Route("AddUser")]
+        public void AddUser([FromBody] UserCredentials userCredentials)
+        {
+           _createUserService.AddUser(userCredentials);
         }
 
         [HttpGet]
