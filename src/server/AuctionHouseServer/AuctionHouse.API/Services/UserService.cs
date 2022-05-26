@@ -1,36 +1,27 @@
 ﻿using AuctionHouse.API.DTO;
-using AuctionHouse.API.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AuctionHouse.API.Services
 {
-    public class UserService: IUserService
+    public class UserService : IUserService
     {
-        public IUserRepository UserRepository;
-            
-        public UserService(IUserRepository userRepository)
+        private readonly IRegisterUserService _registerUserService;
+        private readonly ILoginUserService _loginUserService;
+
+        public UserService(IRegisterUserService registerUserService, ILoginUserService loginUserService)
         {
-            UserRepository = userRepository;
-        }
-        public bool CheckIfCanSetUpAccount(UserDto userdto)
-        {
-            if (UserRepository.GetUsersList().Exists(item => item.Email == userdto.Email))
-            {
-                return false;
-            }
-            if (userdto.Password.Length >= 6)
-            {
-                return true;
-            }
-            return false;
+            _registerUserService = registerUserService;
+            _loginUserService = loginUserService;
         }
 
-        public IUserRepository GetUserRepository()
+        public bool LoginUser(UserDto userDto)
         {
-            return UserRepository;
+            return _loginUserService.LoginUser(userDto);
+        }
+
+        public bool RegisterUser(UserDto userDto)
+        {
+            return _registerUserService.RegisterUser(userDto);
         }
     }
 }
