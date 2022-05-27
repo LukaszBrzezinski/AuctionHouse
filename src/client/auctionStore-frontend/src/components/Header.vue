@@ -10,7 +10,7 @@
                     <p class="menu-link" @click="$store.dispatch('setFavourite')">ulubione</p>
                 </li>
                 <li class="menu-item">
-                    <p class="menu-link">konto</p>
+                    <p class="menu-link" @click="$store.dispatch('setAccountPage')">konto</p>
                 </li>
                 <li class="menu-item">
                     <p class="menu-link" @click="$store.dispatch('setAddNewOffert')">dodaj ogłoszenie</p>
