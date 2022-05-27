@@ -8,6 +8,7 @@ export default createStore({
         isRegisterForm:false,
         isLoginForm:false,
         isFavourite:false,
+        isAccountPage:false,
     },
     getters:{
         getIsTitlePage(state){
@@ -27,6 +28,9 @@ export default createStore({
         },
         getIsFavourite(state){
             return state.isFavourite;
+        },
+        getIsAccountPage(state){
+            return state.isAccountPage;
         }
     },
     mutations:{
@@ -36,6 +40,7 @@ export default createStore({
             state.isRegisterForm = false;
             state.isLoginForm = false;
             state.isFavourite = false;
+            state.isAccountPage = false;
         },
         SET_TITLE_PAGE(state){
             state.isTitlePage = true;
@@ -54,6 +59,9 @@ export default createStore({
         },
         SET_IS_FAVOURITE(state){
             state.isFavourite = true;
+        },
+        SET_IS_ACCOUNT_PAGE(state){
+            state.isAccountPage = true;
         }
     },
     actions:{
@@ -80,6 +88,10 @@ export default createStore({
         setFavourite(context){
             context.commit('SET_ALL_MAIN_PAGES_OFF');
             context.commit('SET_IS_FAVOURITE');
+        },
+        setAccountPage(context){
+            context.commit('SET_ALL_MAIN_PAGES_OFF');
+            context.commit('SET_IS_ACCOUNT_PAGE');
         }
     }
 });

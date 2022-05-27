@@ -15,13 +15,19 @@
                             <p>ADRES E-MAIL</p>
                         </div>
                         <div class="row">
-                            <input type="text" name="mail">
+                            <input type="text" name="mail" v-model="this.userCredentials.Email">
                         </div>
                         <div class="row">
                             <p>LOGIN</p>
                         </div>
                         <div class="row">
-                            <input type="text" name="login">
+                            <input type="text" name="login" v-model="this.userCredentials.Name">
+                        </div>
+                        <div class="row">
+                            <p>DATA URODZENIA</p>
+                        </div>
+                        <div class="row">
+                            <input type="date" name="data" v-model="this.userCredentials.Date">
                         </div>
                         <div class="row" @click="$store.dispatch('setLoginForm')">
                             <p class="subtext">Masz już konto? Zaloguj się....</p>
@@ -32,16 +38,16 @@
                             <p>HASŁO</p>
                         </div>
                         <div class="row">
-                            <input type="password" name="password">
+                            <input type="password" name="password" v-model="this.userCredentials.Password">
                         </div>
                         <div class="row">
                             <p>PODAJ HASŁO PORAZ DRUGI</p>
                         </div>
                         <div class="row">
-                            <input type="text" name="login">
+                            <input type="password" name="password2">
                         </div>
                         <div class="row">
-                            <input type="submit" value="ZAREJESTRUJ SIĘ">
+                            <input type="submit" value="ZAREJESTRUJ SIĘ" @submit.prevent="submit">
                         </div>
                     </div>
                 </div>
@@ -50,8 +56,24 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
-    
+    data(){
+        return{
+            userCredentials:{
+                Name:'',
+                Password:'',
+                Email:'',
+                Date:'',
+            }
+        }
+    },
+    methods:{
+        submit(){
+            let response = axios.post("https://localhost:44370/api/auth/register",this.userCredentials);
+            console.log(response);
+        }
+    }
 }
 </script>
 <style lang="css">

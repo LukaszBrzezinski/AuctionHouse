@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div class="container" data-color="light">
             <div class="input-wrapper">
-                <input type="text" name="" placeholder="Znajdź coś dla siebie...">
+                <input type="text" class="search_bar" placeholder="Znajdź coś dla siebie...">
                 <img src="../../../static/icons/magnifire.png" alt="lupa" class="next-to-right lupa">
             </div>
         </div>

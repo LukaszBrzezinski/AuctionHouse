@@ -135,11 +135,12 @@ footer{
     height:200px;
     display: flex;
 }
-input[type="text"], input[type="password"]{
+input[type="text"], input[type="password"], input[type="date"]{
     border-radius:30px;
     padding:15px;
     border:2px solid black;
     width:90%;
+    font-family: 'Titillium Web', sans-serif;
 }
 input[type="submit"]{
     border-radius:30px;
@@ -148,6 +149,7 @@ input[type="submit"]{
     width:auto;
     font-family: 'Titillium Web', sans-serif;
     padding-bottom:55px;
+    cursor: pointer;
 }
 .lupa{
   width:50px;
@@ -158,9 +160,12 @@ input[type="submit"]{
 .user-select{
     user-select: none;
 }
-
 .subtext{
     font-size: var(--font-size-md);
     color:rgb(72, 72, 202);
+    cursor: pointer;
+}
+.search_bar{
+    width:450px !important;
 }
 </style>
