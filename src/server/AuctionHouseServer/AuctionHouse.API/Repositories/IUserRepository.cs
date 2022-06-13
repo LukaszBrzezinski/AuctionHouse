@@ -8,6 +8,8 @@ namespace AuctionHouse.API.Repositories
 {
     public interface IUserRepository
     {
-        public List<UserDto> GetUsersList();
+        IReadOnlyCollection<UserDto> GetUsersList();
+        bool IsUserExists(string userName, string email, string password);
+        bool Add(UserDto userDto);
     }
 }

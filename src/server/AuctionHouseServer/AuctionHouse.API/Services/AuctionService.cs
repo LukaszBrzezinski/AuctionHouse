@@ -24,16 +24,43 @@ namespace AuctionHouse.API.Services
 
         public bool BuyAuction(AuctionDto dto)
         {
-            var element = _auctionRepository.GetAuctionList().Single(item => item.Id == dto.Id);
-            element.Status = false;
+       //     var auction = _auctionRepository.GetAuctionList().Single(item => item.Id == dto.Id);
+            throw new NotImplementedException("Brakuje funkcji Buy w AuctionRepository");
+            //   auction.Buy();
+
             return true;
         }
 
         public bool DeleteAuction(AuctionDto dto)
         {
-            var element = _auctionRepository.GetAuctionList().Single(item => item.Id == dto.Id);
-            _auctionRepository.GetAuctionList().Remove(element);
+            throw new NotImplementedException("Brakuje funkcji Delete w AuctionRepository");
+          //  var element = _auctionRepository.Delete(dto.Id);
+            //.GetAuctionList().Single(item => item.Id == dto.Id);
+            //_auctionRepository.GetAuctionList().Remove(element);
             return true;
         }
     }
+
+    public class Auction{
+        public int? BoughtByUserId { get; set; }
+        public DateTime? DeletedAt { get; set; }
+        public void Buy(int byUserId)
+        {
+            if (BoughtByUserId == null)
+            {
+                throw new ArgumentException(nameof(byUserId));
+            }
+            BoughtByUserId = byUserId;
+        }
+
+        internal void MarkAsDeleted(int userID)
+        {
+            if (DeletedAt != null)
+            {
+
+            }
+            DeletedAt = DateTime.Now;
+        }
+    }
+
 }

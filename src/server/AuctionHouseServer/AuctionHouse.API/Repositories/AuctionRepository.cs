@@ -1,4 +1,5 @@
 ﻿using AuctionHouse.API.DTO;
+using AuctionHouse.API.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,18 @@ namespace AuctionHouse.API.Repositories
         public List<AuctionDto> GetAuctionList()
         {
             return auctionList;
+        }
+
+        public Auction GetAuction(int auctionId)
+        {
+            var auction =auctionList.SingleOrDefault(a => a.Id == auctionId && a.DeletedAt != null);
+            return auction;
+        }
+
+        public void Remove(int auctionId)
+        {
+            var auction = GetAuction(auctionId);
+            auction.MarkAsDeleted();
         }
     }
 }

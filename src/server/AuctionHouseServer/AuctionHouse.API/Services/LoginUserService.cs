@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using AuctionHouse.API.DTO;
 using AuctionHouse.API.Repositories;
 
@@ -15,13 +16,8 @@ namespace AuctionHouse.API.Services
 
         public bool LoginUser(UserDto userDto)
         {
-            if((_userRepository.GetUsersList().Exists(item => item.Name == userDto.Name) ||
-                _userRepository.GetUsersList().Exists(item => item.Email == userDto.Email)) &&
-                _userRepository.GetUsersList().Exists(item => item.Password == userDto.Password))
-            {
-                return true;
-            }
-            return false;
+            return !_userRepository.IsUserExists(userDto.Name, userDto.Email, userDto.Password.password);
         }
-    }
+       
+     }
 }

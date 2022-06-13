@@ -10,9 +10,39 @@ namespace AuctionHouse.API.Repositories
     {
         private List<UserDto> userList = new List<UserDto>();
 
-        public List<UserDto> GetUsersList()
+
+        public IReadOnlyCollection<UserDto> GetUsersList()
         {
-            return userList;
+            return userList.AsReadOnly();
         }
+
+        private bool IsUserNameExists(string userName, string email)
+        {
+            return userList.Exists(item => item.Name == userName) ||
+               userList.Exists(item => item.Email == email);
+        }
+
+        public bool IsUserExists(string userName, string email, string password)
+        {
+            return IsUserNameExists(userName, email) &&
+            userList.Exists(item => item.Password.password == password);
+        }
+        public bool Add(UserDto userDto)
+        {
+            if ((!IsUserNameExists(userDto.Name, userDto.Email)) && userDto.Password.IsCorrectPassword() == "")
+            {
+                userList.Add(userDto);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
+
+
+
     }
 }
